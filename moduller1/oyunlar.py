@@ -16,3 +16,5 @@ if secim in ["1","2","3"]:
     print(secim,"sectiniz")
     print("Hesaplamalar bölümüne yönlendirileceksiniz")
     import moduller1.oyunlar  
+else: 
+    print("Böyle bir seçenek yok")
