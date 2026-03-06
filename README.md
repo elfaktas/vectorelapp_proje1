@@ -23,7 +23,7 @@ if secim in ["1","2","3"]:
     if secim == "1" : 
         print(secim, "sectiniz")
         print("Hesaplamalar bölümüne yönlendirileceksiniz")
-    import moduller.hesapmakinesi
+    import moduller1.hesapmakinesi
     if secim == "2" : 
         print(secim, "sectiniz")
         print("Oyunlar bölümüne yönlendirileceksiniz")
