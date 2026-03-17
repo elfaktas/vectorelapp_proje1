@@ -1,50 +1,74 @@
-def menu():
-    print("\n==============================")
-    print("     HESAP MAKİNESİ APP")
-    print("==============================")
-    print("1 -> Toplama")
-    print("2 -> Çıkarma")
-    print("3 -> Çarpma")
-    print("4 -> Bölme")
-    print("5 -> Yüzde Hesaplama")
-    print("6 -> Ortalama Hesaplama")
-    print("7 -> Çıkış")
-    print("==============================")
+def ana_menuyu_goster():
+    print("\n================================")
+    print("         HESAP MAKİNESİ")
+    print("================================")
+    print("1 - Toplama")
+    print("2 - Çıkarma")
+    print("3 - Çarpma")
+    print("4 - Bölme")
+    print("5 - Yüzde Hesaplama")
+    print("    1. Bir sayının yüzdesini bul")
+    print("    2. Yüzde artış hesapla")
+    print("6 - Ortalama Hesaplama")
+    print("    1. 2 sayının ortalaması")
+    print("    2. 3 sayının ortalaması")
+    print("    3. İstenilen kadar sayının ortalaması")
+    print("0 - Çıkış")
+    print("================================")
 
-while True:
-    menu()
-    secim = input("Seçiminizi girin: ")
 
-    if secim == "5":
-        print("Program kapatıldı.")
-        break
+def iki_sayi_al():
+    sayi1 = float(input("1. sayıyı girin: "))
+    sayi2 = float(input("2. sayıyı girin: "))
+    return sayi1, sayi2
 
-    if secim not in ["1", "2", "3", "4"]:
-        print("Geçersiz seçim yaptınız.")
-        continue
 
-    sayi1 = float(input("Birinci sayı: "))
-    sayi2 = float(input("İkinci sayı: "))
+def toplama():
+    try:
+        sayi1, sayi2 = iki_sayi_al()
+        print(f"Sonuç: {sayi1 + sayi2}")
+    except ValueError:
+        print("Lütfen geçerli sayı girin.")
 
-    if secim == "1":
-        print("Sonuç:", sayi1 + sayi2)
-    elif secim == "2":
-        print("Sonuç:", sayi1 - sayi2)
-    elif secim == "3":
-        print("Sonuç:", sayi1 * sayi2)
-    elif secim == "4":
+
+def cikarma():
+    try:
+        sayi1, sayi2 = iki_sayi_al()
+        print(f"Sonuç: {sayi1 - sayi2}")
+    except ValueError:
+        print("Lütfen geçerli sayı girin.")
+
+
+def carpma():
+    try:
+        sayi1, sayi2 = iki_sayi_al()
+        print(f"Sonuç: {sayi1 * sayi2}")
+    except ValueError:
+        print("Lütfen geçerli sayı girin.")
+
+
+def bolme():
+    try:
+        sayi1, sayi2 = iki_sayi_al()
         if sayi2 == 0:
-            print("Hata: 0'a bölme yapılamaz.")
+            print("Hata: Bir sayı 0'a bölünemez.")
         else:
-            print("Sonuç:", sayi1 / sayi2)
-    def gelismis_islemler():
-     while True:
-        print("\n--- Gelişmiş İşlemler ---")
-        print("1. Yüzde Hesaplama")
-        print("2. Ortalama Hesaplama")
-        print("3. Ana Menüye Dön")
+            print(f"Sonuç: {sayi1 / sayi2}")
+    except ValueError:
+        print("Lütfen geçerli sayı girin.")
 
-        secim = input("Seçiminizi yapın: ")
+
+def yuzde_hesaplama_menusu():
+    while True:
+        print("\n-----------------------------")
+        print("      YÜZDE HESAPLAMA")
+        print("-----------------------------")
+        print("1 - Bir sayının yüzdesini bul")
+        print("2 - Yüzde artış hesapla")
+        print("0 - Ana menüye dön")
+        print("-----------------------------")
+
+        secim = input("Seçiminiz nedir? ")
 
         if secim == "1":
             try:
@@ -53,47 +77,30 @@ while True:
                 sonuc = (sayi * yuzde) / 100
                 print(f"Sonuç: {sonuc}")
             except ValueError:
-                print("Lütfen geçerli bir sayı girin.")
+                print("Lütfen geçerli sayı girin.")
 
         elif secim == "2":
             try:
-                adet = int(input("Kaç sayı gireceksiniz: "))
-                if adet <= 0:
-                    print("Sıfır veya negatif sayı adedi girilemez.")
-                    continue
-
-                toplam = 0
-                for i in range(1, adet + 1):
-                    sayi = float(input(f"{i}. sayıyı girin: "))
-                    toplam += sayi
-
-                ortalama = toplam / adet
-                print(f"Ortalama: {ortalama}")
+                eski_deger = float(input("Eski değeri girin: "))
+                artis_yuzdesi = float(input("Artış yüzdesini girin: "))
+                yeni_deger = eski_deger + (eski_deger * artis_yuzdesi / 100)
+                print(f"Yeni değer: {yeni_deger}")
             except ValueError:
-                print("Lütfen geçerli bir sayı girin.")
+                print("Lütfen geçerli sayı girin.")
 
-        elif secim == "3":
+        elif secim == "0":
             break
 
         else:
             print("Geçersiz seçim yaptınız.")
 
 
-def ana_menu():
+def ortalama_hesaplama_menusu():
     while True:
-        print("\n=== HESAP MAKİNESİ ===")
-        print("1. Basit İşlemler")
-        print("2. Gelişmiş İşlemler")
-        print("3. Çıkış")
-
-        secim = input("Seçiminizi yapın: ")
-
-        if secim == "1":
-            basit_islemler()
-        elif secim == "2":
-            gelismis_islemler()
-        elif secim == "3":
-            print("Program kapatılıyor...")
-            break
-        else:
-            print("Geçersiz seçim yaptınız.")
+        print("\n-----------------------------")
+        print("    ORTALAMA HESAPLAMA")
+        print("-----------------------------")
+        print("1 - 2 sayının ortalaması")
+        print("2 - 3 sayının ortalaması")
+        print("3 - İstenilen kadar sayının ortalaması")
+        print("0 - Ana menü")
