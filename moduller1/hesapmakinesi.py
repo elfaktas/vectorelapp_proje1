@@ -16,6 +16,9 @@ def ana_menuyu_goster():
     print("0 - Çıkış")
     print("================================")
 
+    if __name__=="__main__":
+        ana_program()
+
 
 def iki_sayi_al():
     sayi1 = float(input("1. sayıyı girin: "))
@@ -105,5 +108,4 @@ def ortalama_hesaplama_menusu():
         print("3 - İstenilen kadar sayının ortalaması")
         print("0 - Ana menü")
 
-    if __name__=="__main__":
-        ana_program()
+    
