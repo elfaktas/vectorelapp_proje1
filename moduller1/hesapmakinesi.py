@@ -1,3 +1,5 @@
+def ana_program():
+    print("Program başladı")
 def ana_menuyu_goster():
     print("\n================================")
     print("         HESAP MAKİNESİ")
