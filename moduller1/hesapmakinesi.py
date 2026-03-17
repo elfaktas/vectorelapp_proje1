@@ -104,3 +104,6 @@ def ortalama_hesaplama_menusu():
         print("2 - 3 sayının ortalaması")
         print("3 - İstenilen kadar sayının ortalaması")
         print("0 - Ana menü")
+
+    if __name__=="__main__":
+        ana_program()
