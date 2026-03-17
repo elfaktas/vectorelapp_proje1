@@ -160,7 +160,7 @@ def ana_program():
             print("Geçersiz seçim yaptınız.")
 
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     ana_program()
 
     
