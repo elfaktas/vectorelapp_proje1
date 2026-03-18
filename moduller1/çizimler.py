@@ -1,26 +1,18 @@
-dimport turtle
+import turtle
 import math
 
 
-def ekran_ayarla():
-    ekran = turtle.Screen()
-    ekran.title("Şekil Çizdirme Menüsü")
-    ekran.bgcolor("white")
-
-
-def kaplumbaga_olustur(hiz=10, kalinlik=2):
-    t = turtle.Turtle()
-    t.speed(hiz)
-    t.pensize(kalinlik)
-    return t
-
-
 def kar_tanesi():
-    uzunluk = int(input("Kar tanesi için uzunluk giriniz: "))
+    pencere = turtle.Screen()
+    pencere.title("Kar Tanesi")
+    pencere.bgcolor("white")
 
-    ekran_ayarla()
-    t = kaplumbaga_olustur(10, 2)
+    t = turtle.Turtle()
+    t.speed(10)
+    t.pensize(2)
     t.pencolor("blue")
+
+    uzunluk = int(input("Kar tanesi için uzunluk giriniz: "))
 
     for i in range(8):
         t.forward(uzunluk)
@@ -31,12 +23,17 @@ def kar_tanesi():
 
 
 def kalp():
-    boyut = int(input("Kalp için boyut giriniz: "))
+    pencere = turtle.Screen()
+    pencere.title("Dolu Kalp")
+    pencere.bgcolor("white")
 
-    ekran_ayarla()
-    t = kaplumbaga_olustur(10, 3)
+    t = turtle.Turtle()
+    t.speed(10)
+    t.pensize(3)
     t.pencolor("red")
     t.fillcolor("red")
+
+    boyut = int(input("Kalp için boyut giriniz: "))
 
     t.begin_fill()
     t.left(140)
@@ -59,13 +56,17 @@ def kalp():
 
 
 def spiral():
+    pencere = turtle.Screen()
+    pencere.title("Renk Geçişli Spiral")
+    pencere.bgcolor("white")
+
+    t = turtle.Turtle()
+    t.speed(10)
+    t.pensize(3)
+
     baslangic = int(input("Spiral için başlangıç uzunluğu giriniz: "))
 
-    ekran_ayarla()
-    t = kaplumbaga_olustur(10, 3)
-
     renkler = ["red", "orange", "yellow", "green", "blue", "purple"]
-
     uzunluk = baslangic
 
     for i in range(60):
@@ -78,11 +79,16 @@ def spiral():
 
 
 def virus():
-    yaricap = int(input("Virüs için merkez yarıçapı giriniz: "))
+    pencere = turtle.Screen()
+    pencere.title("Virüs")
+    pencere.bgcolor("white")
 
-    ekran_ayarla()
-    t = kaplumbaga_olustur(10, 2)
+    t = turtle.Turtle()
+    t.speed(10)
+    t.pensize(2)
     t.pencolor("purple")
+
+    yaricap = int(input("Virüs için merkez yarıçapı giriniz: "))
 
     t.penup()
     t.goto(0, -yaricap)
@@ -104,27 +110,33 @@ def virus():
     turtle.done()
 
 
-print("\n" + "=" * 40)
-print("         ŞEKİL ÇİZDİRME MENÜSÜ")
-print("=" * 40)
-print("1 - Kar Tanesi")
-print("2 - Dolu Kalp")
-print("3 - Renk Geçişli Spiral")
-print("4 - Virüs")
-print("0 - Çıkış")
-print("=" * 40)
+while True:
+    print("\n" + "═" * 42)
+    print("            ANA MENÜ")
+    print("═" * 42)
+    print("1 - Kar Tanesi")
+    print("2 - Dolu Kalp")
+    print("3 - Renk Geçişli Spiral")
+    print("4 - Virüs")
+    print("0 - Çıkış")
+    print("═" * 42)
 
-secim = input("Seçiminizi yapın: ")
+    secim = input("Seçiminizi yapın: ")
 
-if secim == "1":
-    kar_tanesi()
-elif secim == "2":
-    kalp()
-elif secim == "3":
-    spiral()
-elif secim == "4":
-    virus()
-elif secim == "0":
-    print("Programdan çıkılıyor...")
-else:
-    print("Hatalı seçim yaptınız.")
+    if secim == "1":
+        kar_tanesi()
+        break
+    elif secim == "2":
+        kalp()
+        break
+    elif secim == "3":
+        spiral()
+        break
+    elif secim == "4":
+        virus()
+        break
+    elif secim == "0":
+        print("Programdan çıkılıyor...")
+        break
+    else:
+        print("Hatalı seçim yaptınız. Tekrar deneyin.")
