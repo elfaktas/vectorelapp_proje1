@@ -1,139 +1,156 @@
 import turtle
-import math
 
 
-def kar_tanesi():
-    pencere = turtle.Screen()
-    pencere.title("Kar Tanesi")
-    pencere.bgcolor("white")
+def ekran_hazirla(baslik):
+    ekran = turtle.Screen()
+    ekran.title(baslik)
+    ekran.bgcolor("white")
+    ekran.setup(width=900, height=700)
+    return ekran
 
+
+def kalem_olustur(hiz=0, kalinlik=2):
     t = turtle.Turtle()
-    t.speed(10)
-    t.pensize(2)
-    t.pencolor("blue")
-
-    uzunluk = int(input("Kar tanesi için uzunluk giriniz: "))
-
-    for i in range(8):
-        t.forward(uzunluk)
-        t.backward(uzunluk)
-        t.right(45)
-
-    turtle.done()
+    t.speed(hiz)
+    t.pensize(kalinlik)
+    return t
 
 
-def kalp():
-    pencere = turtle.Screen()
-    pencere.title("Dolu Kalp")
-    pencere.bgcolor("white")
+def dolu_kalp():
+    boyut = int(input("Kalp için boyut giriniz (örn: 120): "))
 
-    t = turtle.Turtle()
-    t.speed(10)
-    t.pensize(3)
-    t.pencolor("red")
-    t.fillcolor("red")
+    ekran_hazirla("Dolu Kalp")
+    t = kalem_olustur(0, 3)
 
-    boyut = int(input("Kalp için boyut giriniz: "))
+    t.color("red", "deeppink")
+    t.penup()
+    t.goto(0, -120)
+    t.pendown()
 
     t.begin_fill()
     t.left(140)
     t.forward(boyut)
 
-    for i in range(200):
+    for _ in range(200):
         t.right(1)
         t.forward(boyut * 0.018)
 
     t.left(120)
 
-    for i in range(200):
+    for _ in range(200):
         t.right(1)
         t.forward(boyut * 0.018)
 
     t.forward(boyut)
     t.end_fill()
 
+    t.hideturtle()
     turtle.done()
 
 
-def spiral():
-    pencere = turtle.Screen()
-    pencere.title("Renk Geçişli Spiral")
-    pencere.bgcolor("white")
+def mandala():
+    uzunluk = int(input("Mandala için uzunluk giriniz (örn: 120): "))
 
-    t = turtle.Turtle()
-    t.speed(10)
-    t.pensize(3)
+    ekran_hazirla("Mandala")
+    t = kalem_olustur(0, 2)
 
-    baslangic = int(input("Spiral için başlangıç uzunluğu giriniz: "))
+    renkler = [
+        "purple", "deep pink", "red", "orange",
+        "gold", "green", "turquoise", "blue"
+    ]
 
-    renkler = ["red", "orange", "yellow", "green", "blue", "purple"]
+    for i in range(72):
+        t.pencolor(renkler[i % len(renkler)])
+
+        for _ in range(6):
+            t.forward(uzunluk)
+            t.right(60)
+            t.circle(18)
+
+        t.right(5)
+
+    t.hideturtle()
+    turtle.done()
+
+
+def renkli_spiral():
+    baslangic = int(input("Spiral için başlangıç uzunluğu giriniz (örn: 5): "))
+
+    ekran_hazirla("Renkli Spiral")
+    t = kalem_olustur(0, 3)
+
+    renkler = [
+        "red", "orange", "gold", "lime green",
+        "cyan", "dodger blue", "blue violet", "magenta"
+    ]
+
     uzunluk = baslangic
 
-    for i in range(60):
+    for i in range(120):
         t.pencolor(renkler[i % len(renkler)])
         t.forward(uzunluk)
-        t.right(45)
-        uzunluk += 4
+        t.right(91)
+        uzunluk += 3
 
+    t.hideturtle()
     turtle.done()
 
 
-def virus():
-    pencere = turtle.Screen()
-    pencere.title("Virüs")
-    pencere.bgcolor("white")
+def ic_ice_kareler():
+    baslangic = int(input("İlk kare uzunluğunu giriniz (örn: 40): "))
 
-    t = turtle.Turtle()
-    t.speed(10)
-    t.pensize(2)
-    t.pencolor("purple")
+    ekran_hazirla("İç İçe Kareler")
+    t = kalem_olustur(0, 2)
 
-    yaricap = int(input("Virüs için merkez yarıçapı giriniz: "))
+    renkler = [
+        "navy", "purple", "deep pink", "tomato",
+        "orange", "gold", "green", "deepskyblue"
+    ]
 
-    t.penup()
-    t.goto(0, -yaricap)
-    t.pendown()
-    t.circle(yaricap)
+    uzunluk = baslangic
 
-    for i in range(16):
-        aci = i * 22.5
-        x = yaricap * math.cos(math.radians(aci))
-        y = yaricap * math.sin(math.radians(aci))
+    for i in range(30):
+        t.pencolor(renkler[i % len(renkler)])
+
+        for _ in range(4):
+            t.forward(uzunluk)
+            t.right(90)
 
         t.penup()
-        t.goto(x, y)
-        t.setheading(aci)
+        t.goto(t.xcor() - 5, t.ycor() - 5)
         t.pendown()
-        t.forward(25)
-        t.dot(12, "purple")
 
+        uzunluk += 10
+
+    t.hideturtle()
     turtle.done()
 
 
 while True:
-    print("\n" + "═" * 42)
-    print("            ANA MENÜ")
-    print("═" * 42)
-    print("1 - Kar Tanesi")
-    print("2 - Dolu Kalp")
-    print("3 - Renk Geçişli Spiral")
-    print("4 - Virüs")
-    print("0 - Çıkış")
-    print("═" * 42)
+    print("\n" + "═" * 46)
+    print("               ANA MENÜ")
+    print("═" * 46)
+    print("╔════╦════════════════════════════════════╗")
+    print("║ 1  ║ Dolu Kalp                         ║")
+    print("║ 2  ║ Mandala                           ║")
+    print("║ 3  ║ Renkli Spiral                     ║")
+    print("║ 4  ║ İç İçe Kareler                    ║")
+    print("║ 0  ║ Çıkış                             ║")
+    print("╚════╩════════════════════════════════════╝")
 
     secim = input("Seçiminizi yapın: ")
 
     if secim == "1":
-        kar_tanesi()
+        dolu_kalp()
         break
     elif secim == "2":
-        kalp()
+        mandala()
         break
     elif secim == "3":
-        spiral()
+        renkli_spiral()
         break
     elif secim == "4":
-        virus()
+        ic_ice_kareler()
         break
     elif secim == "0":
         print("Programdan çıkılıyor...")
