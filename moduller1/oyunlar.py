@@ -1,4 +1,8 @@
-print()
+import random
+def cizgi ():
+    print("="*40)
+    
+def menu_goster():
 print("\033[1;32;40m Renkli yazı  \n")
 print(" ╔═════════════════════╗")
 print(" ║    OYUNLAR MENÜSÜ   ║")
