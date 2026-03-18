@@ -1,18 +1,21 @@
 import random
-def cizgi ():
-    print("="*40)
+
+
+def cizgi():
+    print("=" * 40)
+
 
 def menu_goster():
-print()
-print(" ╔═════════════════════╗")
-print(" ║    OYUNLAR MENÜSÜ   ║")
-print(" ╠═════════════════════╣")
-print(" ║  1-Taş Kağıt Makas  ║")
-print(" ║  2-Sayı Tahmini     ║")
-print(" ║  3-Zar Oyunu        ║")
-print(" ║  0-Çıkış            ║")
-print(" ║   Seçiminiz?        ║")
-print(" ╚═════════════════════╝")
+    print()
+    print("╔══════════════════════════════╗")
+    print("║        OYUNLAR MENÜSÜ        ║")
+    print("╠══════════════════════════════╣")
+    print("║ 1 - Taş Kağıt Makas          ║")
+    print("║ 2 - Sayı Tahmini             ║")
+    print("║ 3 - Zar Oyunu                ║")
+    print("║ 0 - Çıkış                    ║")
+    print("╚══════════════════════════════╝")
+
 
 def tas_kagit_makas():
     while True:
@@ -110,9 +113,8 @@ def zar_oyunu():
 
 
 while True:
-    print("\n")
     menu_goster()
-    secim = input("Bir seçim yapın: ")
+    secim = input("Seçiminiz: ")
 
     if secim == "1":
         tas_kagit_makas()
