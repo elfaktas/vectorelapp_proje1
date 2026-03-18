@@ -22,7 +22,7 @@ def dolu_kalp():
     ekran_hazirla("Dolu Kalp")
     t = kalem_olustur(0, 3)
 
-    t.color("red", "deeppink")
+    t.color("red")
     t.penup()
     t.goto(0, -120)
     t.pendown()
