@@ -21,5 +21,8 @@ if secim in ["1","2","3"]:
     if secim == "2" : 
         print(secim, "sectiniz")
         print("Oyunlar bölümüne yönlendirileceksiniz")
+    if secim =="3":
+         print(secim, "sectiniz")
+         print("Çizimler bölümüne yönlendirileceksiniz")
 else :
         print("Böyle bir seçenek yok.")
