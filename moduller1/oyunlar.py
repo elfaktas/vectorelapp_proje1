@@ -12,7 +12,7 @@ def menu_goster():
     print("╠══════════════════════════════╣")
     print("║ 1 - Taş Kağıt Makas          ║")
     print("║ 2 - Sayı Tahmini             ║")
-    print("║ 3 - Zar Oyunu                ║")
+    print("║ 3 - Zar Atmaca               ║")
     print("║ 0 - Çıkış                    ║")
     print("╚══════════════════════════════╝")
 
@@ -90,7 +90,7 @@ def sayi_tahmin():
 
 def zar_oyunu():
     while True:
-        print("\nZAR OYUNU")
+        print("\nZAR ATMACA")
         cizgi()
         input("Zar atmak için Enter'a bas...")
 
