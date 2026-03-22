@@ -1,8 +1,6 @@
-print("ANAPROGRAM ACILDI")
-
 import moduller1.hesapmakinesi
 import moduller1.oyunlar
-# import moduller1.cizimler
+import moduller1.cizimler
 
 
 def ana_menu():
@@ -13,26 +11,28 @@ def ana_menu():
         print(" ├──────────────────────┤ ")
         print(" │   1-Hesaplamalar     │ ")
         print(" │   2-Oyunlar          │ ")
-        print(" │   3-Çizimler         │ ")
-        print(" │   C-Çıkış            │ ")
+        print(" │   3-Cizimler         │ ")
+        print(" │   C-Cikis            │ ")
         print(" └──────────────────────┘ ")
 
         secim = input("Seçiminiz nedir? ").strip().upper()
 
         if secim == "1":
-            print("Hesaplamalar bölümüne yönlendiriliyorsunuz...")
-            break
+            moduller1.hesapmakinesi.ana_menuyu_goster()
+
         elif secim == "2":
-            print("Oyunlar bölümüne yönlendiriliyorsunuz...")
-            break
+            moduller1.oyunlar.oyun_menusu()
+
         elif secim == "3":
-            print("Çizimler bölümüne yönlendiriliyorsunuz...")
-            break
+            moduller1.cizimler.cizim_menusu()
+
         elif secim == "C":
             print("Programdan çıkılıyor...")
             break
+
         else:
             print("Böyle bir seçenek yok. Tekrar deneyin.")
+
 
 if __name__ == "__main__":
     ana_menu()
