@@ -1,21 +1,33 @@
 import random
 
-
 def cizgi():
     print("=" * 40)
 
+def oyun_menusu():
+    while True:
+        print()
+        print("╔══════════════════════════════╗")
+        print("║        OYUNLAR MENÜSÜ        ║")
+        print("╠══════════════════════════════╣")
+        print("║ 1 - Taş Kağıt Makas          ║")
+        print("║ 2 - Sayı Tahmini             ║")
+        print("║ 3 - Zar Atmaca               ║")
+        print("║ 0 - Çıkış                    ║")
+        print("╚══════════════════════════════╝")
 
-def menu_goster():
-    print()
-    print("╔══════════════════════════════╗")
-    print("║        OYUNLAR MENÜSÜ        ║")
-    print("╠══════════════════════════════╣")
-    print("║ 1 - Taş Kağıt Makas          ║")
-    print("║ 2 - Sayı Tahmini             ║")
-    print("║ 3 - Zar Atmaca               ║")
-    print("║ 0 - Çıkış                    ║")
-    print("╚══════════════════════════════╝")
+        secim = input("Seçiminiz: ")
 
+        if secim == "1":
+            tas_kagit_makas()
+        elif secim == "2":
+            sayi_tahmin()
+        elif secim == "3":
+            zar_oyunu()
+        elif secim == "0":
+            print("Oyunlar menüsünden çıkılıyor...")
+            break
+        else:
+            print("Hatalı seçim yaptınız. Tekrar deneyin.")
 
 def tas_kagit_makas():
     while True:
@@ -57,7 +69,6 @@ def tas_kagit_makas():
         if tekrar != "e":
             break
 
-
 def sayi_tahmin():
     print("\nSAYI TAHMİN OYUNU")
     cizgi()
@@ -87,7 +98,6 @@ def sayi_tahmin():
 
     print(f"Hakkın bitti. Doğru sayı: {tutulan_sayi}")
 
-
 def zar_oyunu():
     while True:
         print("\nZAR ATMACA")
@@ -111,21 +121,5 @@ def zar_oyunu():
         if tekrar != "e":
             break
 
-
-while True:
-    menu_goster()
-    secim = input("Seçiminiz: ")
-
-    if secim == "1":
-        tas_kagit_makas()
-    elif secim == "2":
-        sayi_tahmin()
-    elif secim == "3":
-        zar_oyunu()
-    elif secim == "0":
-        print("Programdan çıkılıyor...")
-        break
-    else:
-        print("Hatalı seçim yaptınız. Tekrar deneyin.")
-        if _name_ == "_main_":
-            oyun_menusu()
+if __name__ == "__main__":
+    oyun_menusu()
