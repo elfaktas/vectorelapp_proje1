@@ -68,34 +68,36 @@ def mandala_ciz():
 
 
 def fraktal_agac():
-    ekran, kalem = ekran_hazirla("Fraktal Agac", "lightblue")
+    ekran = turtle.Screen()
+    ekran.bgcolor("black")
+    ekran.setup(width=900, height=700)
+    ekran.title("Fraktal Agac")
 
-    kalem.color("brown")
-    kalem.pensize(3)
-    kalem.penup()
-    kalem.goto(0, -260)
-    kalem.setheading(90)
-    kalem.pendown()
+    tu = turtle.Turtle()
+    tu.screen.bgcolor("black")
+    tu.pensize(2)
+    tu.color("green")
+    tu.left(90)
+    tu.backward(100)
+    tu.speed(300)
+    tu.shape("turtle")
 
-    def dal(uzunluk):
-        if uzunluk < 12:
-            kalem.color("green")
-            kalem.dot(8)
-            kalem.color("brown")
+    def tree(i):
+        if i < 10:
             return
+        else:
+            tu.forward(i)
+            tu.color("orange")
+            tu.circle(2)
+            tu.color("brown")
+            tu.left(30)
+            tree(3 * i / 4)
+            tu.right(60)
+            tree(3 * i / 4)
+            tu.left(30)
+            tu.backward(i)
 
-        kalem.forward(uzunluk)
-
-        kalem.right(25)
-        dal(uzunluk - 15)
-
-        kalem.left(50)
-        dal(uzunluk - 15)
-
-        kalem.right(25)
-        kalem.backward(uzunluk)
-
-    dal(95)
+    tree(100)
 
     print("\nFraktal agac acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
