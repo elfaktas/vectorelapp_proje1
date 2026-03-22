@@ -18,7 +18,7 @@ def ana_menu():
         secim = input("Seçiminiz nedir? ").strip().upper()
 
         if secim == "1":
-            moduller1.hesapmakinesi.ana_menuyu_goster()
+            moduller1.hesapmakinesi.ana_program()
 
         elif secim == "2":
             moduller1.oyunlar.oyun_menusu()
