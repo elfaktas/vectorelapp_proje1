@@ -1,7 +1,9 @@
 import turtle
 
+
 def cizgi():
     print("=" * 42)
+
 
 def menu_goster():
     print()
@@ -16,6 +18,7 @@ def menu_goster():
     print("│ 0 - Cikis                            │")
     print("└──────────────────────────────────────┘")
 
+
 def ekran_hazirla(baslik="Turtle Cizim", arka_plan="white"):
     ekran = turtle.Screen()
     ekran.bgcolor(arka_plan)
@@ -28,11 +31,11 @@ def ekran_hazirla(baslik="Turtle Cizim", arka_plan="white"):
 
     return ekran, kalem
 
+
 def spiral_yildiz():
     ekran, kalem = ekran_hazirla("Spiral Yildiz", "white")
 
     n = 50
-    kalem.speed(0)
     kalem.pensize(2)
     kalem.color("black")
 
@@ -43,6 +46,7 @@ def spiral_yildiz():
     print("\nSpiral yildiz acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
+
 
 def mandala_ciz():
     ekran, kalem = ekran_hazirla("Mandala", "white")
@@ -61,6 +65,7 @@ def mandala_ciz():
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
 
+
 def fraktal_agac():
     ekran = turtle.Screen()
     ekran.bgcolor("black")
@@ -68,34 +73,35 @@ def fraktal_agac():
     ekran.title("Fraktal Agac")
 
     tu = turtle.Turtle()
-    tu.screen.bgcolor("black")
+    tu.hideturtle()
     tu.pensize(2)
     tu.color("green")
     tu.left(90)
-    tu.backward(100)
+    tu.penup()
+    tu.goto(0, -250)
+    tu.pendown()
     tu.speed(0)
-    tu.shape("turtle")
 
     def tree(i):
         if i < 10:
             return
-        else:
-            tu.forward(i)
-            tu.color("orange")
-            tu.circle(2)
-            tu.color("brown")
-            tu.left(30)
-            tree(3 * i / 4)
-            tu.right(60)
-            tree(3 * i / 4)
-            tu.left(30)
-            tu.backward(i)
+        tu.forward(i)
+        tu.color("orange")
+        tu.circle(2)
+        tu.color("brown")
+        tu.left(30)
+        tree(3 * i / 4)
+        tu.right(60)
+        tree(3 * i / 4)
+        tu.left(30)
+        tu.backward(i)
 
     tree(100)
 
     print("\nFraktal agac acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
+
 
 def elif_yazisi():
     ekran, kalem = ekran_hazirla("ELIF Yazisi", "lavender")
@@ -157,6 +163,7 @@ def elif_yazisi():
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
 
+
 def kalp_ciz():
     ekran, kalem = ekran_hazirla("Kalp Cizimi", "white")
 
@@ -185,6 +192,7 @@ def kalp_ciz():
     print("\nKalp cizimi acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
+
 
 def cizim_menusu():
     while True:
@@ -223,7 +231,7 @@ def cizim_menusu():
 
         elif secim == "0":
             cizgi()
-            print("Program kapatildi.")
+            print("Cizim menusunden cikiliyor.")
             cizgi()
             break
 
@@ -231,6 +239,7 @@ def cizim_menusu():
             cizgi()
             print("Gecersiz secim yaptiniz. Tekrar deneyin.")
             cizgi()
+
 
 if __name__ == "__main__":
     cizim_menusu()
