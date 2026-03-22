@@ -1,3 +1,3 @@
 # vectorelapp_proje1
-<img height=50 src="resimler1/anaekran.JPG" alt="Örnek Resim"/>
+<img height=50 src="Resimler/1.jpeg">
 
