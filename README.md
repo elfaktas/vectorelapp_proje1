@@ -1,3 +1,2 @@
 # vectorelapp_proje1
-<img height=50 src="Resimler/1.jpeg">
-
+<img src="resim1.jpeg" width="300">
