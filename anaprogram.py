@@ -1,5 +1,8 @@
+print("ANAPROGRAM ACILDI")
+
 import moduller1.hesapmakinesi
 import moduller1.oyunlar
+# import moduller1.cizimler
 
 
 def ana_menu():
@@ -31,5 +34,5 @@ def ana_menu():
         else:
             print("Böyle bir seçenek yok. Tekrar deneyin.")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     ana_menu()
