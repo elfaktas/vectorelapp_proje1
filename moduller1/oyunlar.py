@@ -15,7 +15,7 @@ def oyun_menusu():
         print("║ 0 - Çıkış                    ║")
         print("╚══════════════════════════════╝")
 
-        secim = input("Seçiminiz: ")
+        secim = input("Seçiminiz: ").strip()
 
         if secim == "1":
             tas_kagit_makas()
@@ -27,7 +27,7 @@ def oyun_menusu():
             print("Oyunlar menüsünden çıkılıyor...")
             break
         else:
-            print("Hatalı seçim yaptınız. Tekrar deneyin.")
+            print("Geçersiz seçim yaptınız. Tekrar deneyin.")
 
 def tas_kagit_makas():
     while True:
@@ -38,7 +38,7 @@ def tas_kagit_makas():
         print("3 - Makas")
         cizgi()
 
-        secim = input("Seçiminizi yapın (1/2/3): ")
+        secim = input("Seçiminizi yapın (1/2/3): ").strip()
 
         if secim not in ["1", "2", "3"]:
             print("Geçersiz seçim yaptınız. Tekrar deneyin.")
@@ -61,7 +61,7 @@ def tas_kagit_makas():
         elif (oyuncu == 1 and bilgisayar == 3) or \
              (oyuncu == 2 and bilgisayar == 1) or \
              (oyuncu == 3 and bilgisayar == 2):
-            print("Sonuç: Kazandın! 🎉")
+            print("Sonuç: Kazandın!")
         else:
             print("Sonuç: Bilgisayar kazandı!")
 
@@ -84,7 +84,7 @@ def sayi_tahmin():
             tahmin = int(input(f"Tahmininizi girin ({hak} hak kaldı): "))
 
             if tahmin == tutulan_sayi:
-                print("Tebrikler! Doğru tahmin ettin 🎉")
+                print("Tebrikler! Doğru tahmin ettin!")
                 return
             elif tahmin < tutulan_sayi:
                 print("Daha büyük bir sayı gir.")
@@ -111,7 +111,7 @@ def zar_oyunu():
         print(f"Bilgisayarın zarı: {bilgisayar_zar}")
 
         if oyuncu_zar > bilgisayar_zar:
-            print("Sonuç: Kazandın! 🎉")
+            print("Sonuç: Kazandın!")
         elif oyuncu_zar < bilgisayar_zar:
             print("Sonuç: Bilgisayar kazandı!")
         else:
