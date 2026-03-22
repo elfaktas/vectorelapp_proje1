@@ -1,6 +1,6 @@
 import moduller1.hesapmakinesi
 import moduller1.oyunlar
-import moduller1.cizimler
+import moduller1.çizimler
 
 def ana_menu():
     while True:
