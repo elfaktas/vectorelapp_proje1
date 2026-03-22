@@ -3,6 +3,9 @@ import random
 
 def cizgi():
     print("=" * 40)
+
+
+def menu_goster():
     print()
     print("╔══════════════════════════════╗")
     print("║        OYUNLAR MENÜSÜ        ║")
@@ -124,3 +127,5 @@ while True:
         break
     else:
         print("Hatalı seçim yaptınız. Tekrar deneyin.")
+        if _name_ == "_main_":
+            oyun_menusu()
