@@ -1,9 +1,7 @@
 import turtle
 
-
 def cizgi():
     print("=" * 42)
-
 
 def menu_goster():
     print()
@@ -18,7 +16,6 @@ def menu_goster():
     print("│ 0 - Cikis                            │")
     print("└──────────────────────────────────────┘")
 
-
 def ekran_hazirla(baslik="Turtle Cizim", arka_plan="white"):
     ekran = turtle.Screen()
     ekran.bgcolor(arka_plan)
@@ -30,7 +27,6 @@ def ekran_hazirla(baslik="Turtle Cizim", arka_plan="white"):
     kalem.speed(0)
 
     return ekran, kalem
-
 
 def spiral_yildiz():
     ekran, kalem = ekran_hazirla("Spiral Yildiz", "white")
@@ -47,7 +43,6 @@ def spiral_yildiz():
     print("\nSpiral yildiz acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
-
 
 def mandala_ciz():
     ekran, kalem = ekran_hazirla("Mandala", "white")
@@ -66,7 +61,6 @@ def mandala_ciz():
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
 
-
 def fraktal_agac():
     ekran = turtle.Screen()
     ekran.bgcolor("black")
@@ -79,7 +73,7 @@ def fraktal_agac():
     tu.color("green")
     tu.left(90)
     tu.backward(100)
-    tu.speed(300)
+    tu.speed(0)
     tu.shape("turtle")
 
     def tree(i):
@@ -102,7 +96,6 @@ def fraktal_agac():
     print("\nFraktal agac acildi.")
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
-
 
 def elif_yazisi():
     ekran, kalem = ekran_hazirla("ELIF Yazisi", "lavender")
@@ -164,7 +157,6 @@ def elif_yazisi():
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
 
-
 def kalp_ciz():
     ekran, kalem = ekran_hazirla("Kalp Cizimi", "white")
 
@@ -194,48 +186,51 @@ def kalp_ciz():
     print("Cizim penceresine tiklayinca kapanir.")
     ekran.exitonclick()
 
+def cizim_menusu():
+    while True:
+        menu_goster()
+        secim = input("Seciminizi girin: ").strip()
 
-while True:
-    menu_goster()
-    secim = input("Seciminizi girin: ").strip()
+        if secim == "1":
+            cizgi()
+            print("Spiral yildiz secildi.")
+            cizgi()
+            spiral_yildiz()
 
-    if secim == "1":
-        cizgi()
-        print("Spiral yildiz secildi.")
-        cizgi()
-        spiral_yildiz()
+        elif secim == "2":
+            cizgi()
+            print("Mandala secildi.")
+            cizgi()
+            mandala_ciz()
 
-    elif secim == "2":
-        cizgi()
-        print("Mandala secildi.")
-        cizgi()
-        mandala_ciz()
+        elif secim == "3":
+            cizgi()
+            print("Fraktal agac secildi.")
+            cizgi()
+            fraktal_agac()
 
-    elif secim == "3":
-        cizgi()
-        print("Fraktal agac secildi.")
-        cizgi()
-        fraktal_agac()
+        elif secim == "4":
+            cizgi()
+            print("ELIF yazisi secildi.")
+            cizgi()
+            elif_yazisi()
 
-    elif secim == "4":
-        cizgi()
-        print("ELIF yazisi secildi.")
-        cizgi()
-        elif_yazisi()
+        elif secim == "5":
+            cizgi()
+            print("Kalp cizimi secildi.")
+            cizgi()
+            kalp_ciz()
 
-    elif secim == "5":
-        cizgi()
-        print("Kalp cizimi secildi.")
-        cizgi()
-        kalp_ciz()
+        elif secim == "0":
+            cizgi()
+            print("Program kapatildi.")
+            cizgi()
+            break
 
-    elif secim == "0":
-        cizgi()
-        print("Program kapatildi.")
-        cizgi()
-        break
+        else:
+            cizgi()
+            print("Gecersiz secim yaptiniz. Tekrar deneyin.")
+            cizgi()
 
-    else:
-        cizgi()
-        print("Gecersiz secim yaptiniz. Tekrar deneyin.")
-        cizgi()
+if __name__ == "__main__":
+    cizim_menusu()
