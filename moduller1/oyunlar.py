@@ -3,9 +3,6 @@ import random
 
 def cizgi():
     print("=" * 40)
-
-
-def menu_goster():
     print()
     print("╔══════════════════════════════╗")
     print("║        OYUNLAR MENÜSÜ        ║")
