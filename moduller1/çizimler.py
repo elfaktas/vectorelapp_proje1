@@ -1,159 +1,239 @@
 import turtle
 
 
-def ekran_hazirla(baslik):
+def cizgi():
+    print("=" * 42)
+
+
+def menu_goster():
+    print()
+    print("┌──────────────────────────────────────┐")
+    print("│             CIZIM MENUSU             │")
+    print("├──────────────────────────────────────┤")
+    print("│ 1 - Spiral Yildiz                    │")
+    print("│ 2 - Mandala                          │")
+    print("│ 3 - Fraktal Agac                     │")
+    print("│ 4 - ELIF Yazisi                      │")
+    print("│ 5 - Kalp Cizimi                      │")
+    print("│ 0 - Cikis                            │")
+    print("└──────────────────────────────────────┘")
+
+
+def ekran_hazirla(baslik="Turtle Cizim", arka_plan="white"):
     ekran = turtle.Screen()
-    ekran.title(baslik)
-    ekran.bgcolor("white")
+    ekran.bgcolor(arka_plan)
     ekran.setup(width=900, height=700)
-    return ekran
+    ekran.title(baslik)
+
+    kalem = turtle.Turtle()
+    kalem.hideturtle()
+    kalem.speed(0)
+
+    return ekran, kalem
 
 
-def kalem_olustur(hiz=0, kalinlik=2):
-    t = turtle.Turtle()
-    t.speed(hiz)
-    t.pensize(kalinlik)
-    return t
+def spiral_yildiz():
+    ekran, kalem = ekran_hazirla("Spiral Yildiz", "white")
+
+    n = 50
+    kalem.speed(0)
+    kalem.pensize(2)
+    kalem.color("black")
+
+    for i in range(n):
+        kalem.forward(i * 10)
+        kalem.right(144)
+
+    print("\nSpiral yildiz acildi.")
+    print("Cizim penceresine tiklayinca kapanir.")
+    ekran.exitonclick()
 
 
-def dolu_kalp():
-    boyut = int(input("Kalp için boyut giriniz (örn: 120): "))
+def mandala_ciz():
+    ekran, kalem = ekran_hazirla("Mandala", "white")
 
-    ekran_hazirla("Dolu Kalp")
-    t = kalem_olustur(0, 3)
-
-    t.color("red")
-    t.penup()
-    t.goto(0, -120)
-    t.pendown()
-
-    t.begin_fill()
-    t.left(140)
-    t.forward(boyut)
-
-    for _ in range(200):
-        t.right(1)
-        t.forward(boyut * 0.018)
-
-    t.left(120)
-
-    for _ in range(200):
-        t.right(1)
-        t.forward(boyut * 0.018)
-
-    t.forward(boyut)
-    t.end_fill()
-
-    t.hideturtle()
-    turtle.done()
-
-
-def mandala():
-    uzunluk = int(input("Mandala için uzunluk giriniz (örn: 120): "))
-
-    ekran_hazirla("Mandala")
-    t = kalem_olustur(0, 2)
-
-    renkler = [
-        "purple", "deep pink", "red", "orange",
-        "gold", "green", "turquoise", "blue"
-    ]
+    renkler = ["purple", "blue", "deeppink", "orange", "green", "red"]
+    kalem.pensize(2)
 
     for i in range(72):
-        t.pencolor(renkler[i % len(renkler)])
-
+        kalem.color(renkler[i % len(renkler)])
         for _ in range(6):
-            t.forward(uzunluk)
-            t.right(60)
-            t.circle(18)
+            kalem.forward(110)
+            kalem.right(60)
+        kalem.right(5)
 
-        t.right(5)
-
-    t.hideturtle()
-    turtle.done()
-
-
-def renkli_spiral():
-    baslangic = int(input("Spiral için başlangıç uzunluğu giriniz (örn: 5): "))
-
-    ekran_hazirla("Renkli Spiral")
-    t = kalem_olustur(0, 3)
-
-    renkler = [
-        "red", "orange", "gold", "lime green",
-        "cyan", "dodger blue", "blue violet", "magenta"
-    ]
-
-    uzunluk = baslangic
-
-    for i in range(120):
-        t.pencolor(renkler[i % len(renkler)])
-        t.forward(uzunluk)
-        t.right(91)
-        uzunluk += 3
-
-    t.hideturtle()
-    turtle.done()
+    print("\nMandala acildi.")
+    print("Cizim penceresine tiklayinca kapanir.")
+    ekran.exitonclick()
 
 
-def ic_ice_kareler():
-    baslangic = int(input("İlk kare uzunluğunu giriniz (örn: 40): "))
+def fraktal_agac():
+    ekran, kalem = ekran_hazirla("Fraktal Agac", "lightblue")
 
-    ekran_hazirla("İç İçe Kareler")
-    t = kalem_olustur(0, 2)
+    kalem.color("brown")
+    kalem.pensize(3)
+    kalem.penup()
+    kalem.goto(0, -260)
+    kalem.setheading(90)
+    kalem.pendown()
 
-    renkler = [
-        "navy", "purple", "deep pink", "tomato",
-        "orange", "gold", "green", "deepskyblue"
-    ]
+    def dal(uzunluk):
+        if uzunluk < 12:
+            kalem.color("green")
+            kalem.dot(8)
+            kalem.color("brown")
+            return
 
-    uzunluk = baslangic
+        kalem.forward(uzunluk)
 
-    for i in range(30):
-        t.pencolor(renkler[i % len(renkler)])
+        kalem.right(25)
+        dal(uzunluk - 15)
 
-        for _ in range(4):
-            t.forward(uzunluk)
-            t.right(90)
+        kalem.left(50)
+        dal(uzunluk - 15)
 
-        t.penup()
-        t.goto(t.xcor() - 5, t.ycor() - 5)
-        t.pendown()
+        kalem.right(25)
+        kalem.backward(uzunluk)
 
-        uzunluk += 10
+    dal(95)
 
-    t.hideturtle()
-    turtle.done()
+    print("\nFraktal agac acildi.")
+    print("Cizim penceresine tiklayinca kapanir.")
+    ekran.exitonclick()
+
+
+def elif_yazisi():
+    ekran, kalem = ekran_hazirla("ELIF Yazisi", "lavender")
+
+    kalem.color("purple")
+    kalem.pensize(7)
+
+    # E
+    kalem.penup()
+    kalem.goto(-300, -60)
+    kalem.setheading(90)
+    kalem.pendown()
+    kalem.forward(140)
+    kalem.right(90)
+    kalem.forward(70)
+    kalem.backward(70)
+    kalem.right(90)
+    kalem.forward(70)
+    kalem.left(90)
+    kalem.forward(55)
+    kalem.backward(55)
+    kalem.right(90)
+    kalem.forward(70)
+    kalem.left(90)
+    kalem.forward(70)
+
+    # L
+    kalem.penup()
+    kalem.goto(-160, -60)
+    kalem.setheading(90)
+    kalem.pendown()
+    kalem.forward(140)
+    kalem.backward(140)
+    kalem.right(90)
+    kalem.forward(70)
+
+    # I
+    kalem.penup()
+    kalem.goto(-40, -60)
+    kalem.setheading(90)
+    kalem.pendown()
+    kalem.forward(140)
+
+    # F
+    kalem.penup()
+    kalem.goto(60, -60)
+    kalem.setheading(90)
+    kalem.pendown()
+    kalem.forward(140)
+    kalem.right(90)
+    kalem.forward(70)
+    kalem.backward(70)
+    kalem.left(90)
+    kalem.backward(70)
+    kalem.right(90)
+    kalem.forward(55)
+
+    print("\nELIF yazisi acildi.")
+    print("Cizim penceresine tiklayinca kapanir.")
+    ekran.exitonclick()
+
+
+def kalp_ciz():
+    ekran, kalem = ekran_hazirla("Kalp Cizimi", "white")
+
+    kalem.speed(3)
+    kalem.color("red", "pink")
+    kalem.pensize(2)
+
+    def curve():
+        for _ in range(200):
+            kalem.right(1)
+            kalem.forward(1)
+
+    kalem.penup()
+    kalem.goto(0, -100)
+    kalem.pendown()
+
+    kalem.begin_fill()
+    kalem.left(140)
+    kalem.forward(111.65)
+    curve()
+    kalem.left(120)
+    curve()
+    kalem.forward(111.65)
+    kalem.end_fill()
+
+    print("\nKalp cizimi acildi.")
+    print("Cizim penceresine tiklayinca kapanir.")
+    ekran.exitonclick()
 
 
 while True:
-    print("\n" + "═" * 46)
-    print("               ANA MENÜ")
-    print("═" * 46)
-    print("╔════╦════════════════════════════════════╗")
-    print("║ 1  ║ Dolu Kalp                         ║")
-    print("║ 2  ║ Mandala                           ║")
-    print("║ 3  ║ Renkli Spiral                     ║")
-    print("║ 4  ║ İç İçe Kareler                    ║")
-    print("║ 0  ║ Çıkış                             ║")
-    print("╚════╩════════════════════════════════════╝")
-
-    secim = input("Seçiminizi yapın: ")
+    menu_goster()
+    secim = input("Seciminizi girin: ").strip()
 
     if secim == "1":
-        dolu_kalp()
-        break
+        cizgi()
+        print("Spiral yildiz secildi.")
+        cizgi()
+        spiral_yildiz()
+
     elif secim == "2":
-        mandala()
-        break
+        cizgi()
+        print("Mandala secildi.")
+        cizgi()
+        mandala_ciz()
+
     elif secim == "3":
-        renkli_spiral()
-        break
+        cizgi()
+        print("Fraktal agac secildi.")
+        cizgi()
+        fraktal_agac()
+
     elif secim == "4":
-        ic_ice_kareler()
-        break
+        cizgi()
+        print("ELIF yazisi secildi.")
+        cizgi()
+        elif_yazisi()
+
+    elif secim == "5":
+        cizgi()
+        print("Kalp cizimi secildi.")
+        cizgi()
+        kalp_ciz()
+
     elif secim == "0":
-        print("Programdan çıkılıyor...")
+        cizgi()
+        print("Program kapatildi.")
+        cizgi()
         break
+
     else:
-        print("Hatalı seçim yaptınız. Tekrar deneyin.")
+        cizgi()
+        print("Gecersiz secim yaptiniz. Tekrar deneyin.")
+        cizgi()
